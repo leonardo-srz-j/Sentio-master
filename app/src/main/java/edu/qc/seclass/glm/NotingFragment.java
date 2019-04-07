@@ -91,7 +91,7 @@ public class NotingFragment extends Fragment implements RetrieveGetSentiment.Asy
 
     public String getGoodORBad() {
         if (arr[0] > arr[1]) {
-            return "Let't try to have a good day tomorrow";
+            return "We always have tomorrow to look forward to. Let's try to make the best out of it!";
         } else return "You had a good day, let's do it again!!!";
     }
 

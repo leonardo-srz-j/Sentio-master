@@ -29,11 +29,9 @@ public class LogFragment extends Fragment {
 
     private void populateList(View view) {
         System.out.println(ourJournal.get(0) + "????????????????????????");
-
         //building the adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), R.layout.log_item, ourJournal);
         listView = (ListView) view.findViewById(R.id.journal_list_view);
         listView.setAdapter(adapter);
-
     }
 }

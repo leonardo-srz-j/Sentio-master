@@ -7,8 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class EvaluationFragment extends Fragment {
+    ListView listView;
+    NotingFragment arrayOfLogs = new NotingFragment();
+    ArrayList<String> ourJournal = arrayOfLogs.getJournal();
 
     /**
      * Every time we create a new instance of this class we are calling
@@ -26,6 +33,15 @@ public class EvaluationFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_evaluation,container,false);
+        View view = inflater.inflate(R.layout.fragment_evaluation,container,false);
+
+        TextView evaluationTv = view.findViewById(R.id.evaluation_tv);
+        String eval = evaluationTv.getText().toString();
+        if (!ourJournal.isEmpty()) {
+            eval = eval + arrayOfLogs.getGoodORBad();
+            evaluationTv.setText(eval);
+        }
+
+        return view;
     }
 }
